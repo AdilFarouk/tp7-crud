@@ -7,18 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $duree  = $_POST['duree'];
     $niveau = $_POST['niveau'];
 
-    // b. préparer la requête
     $sql = "INSERT INTO formation (titre, duree, niveau) VALUES (:titre, :duree, :niveau)";
     $stmt = $pdo->prepare($sql);
 
-    // c. exécuter
     $stmt->execute(array(
         ":titre"  => $titre,
         ":duree"  => $duree,
         ":niveau" => $niveau
     ));
 
-    // d. rediriger vers la liste
     header("Location: index.php");
     exit;
 }

@@ -1,5 +1,5 @@
 <?php
-// Variables attendues : $base (chemin vers la racine) et $page (page active)
+// $base (chemin vers la racine) et $page (page active)
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container">

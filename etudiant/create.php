@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// pour alimenter la liste select
 $formations = $pdo->query("SELECT id_formation, titre FROM formation ORDER BY titre")
                   ->fetchAll(PDO::FETCH_ASSOC);
 ?>

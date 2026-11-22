@@ -1,10 +1,8 @@
 <?php
 require_once '../database/connexion.php';
 
-// a. récupérer l'identifiant
 $id = $_GET['id'];
 
-// b. charger les données de cette formation
 $stmt = $pdo->prepare("SELECT * FROM formation WHERE id_formation = :id");
 $stmt->execute(array(":id" => $id));
 $formation = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -14,7 +12,6 @@ if (!$formation) {
     exit;
 }
 
-// d. si le formulaire est envoyé : UPDATE avec WHERE
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "UPDATE formation
             SET titre = :titre, duree = :duree, niveau = :niveau
@@ -26,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ":niveau" => $_POST['niveau'],
         ":id"     => $id
     ));
-    // e. rediriger
     header("Location: index.php");
     exit;
 }
